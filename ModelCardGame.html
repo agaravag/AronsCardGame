@@ -1,0 +1,70 @@
+<script>
+  
+  var diamonds = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var hearts = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var spades = [2, 3, 4, 5, 6, 7, 8, 9, 10];  
+  var clubs = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  
+  var diamondsPick;
+  var heartsPick;
+  var spadesPick;
+  var clubsPick;
+
+  function card(suit, rank) {
+      this.suit = suit;
+      this.rank = rank;
+      this.suitConnect = highOrLow;
+  };
+
+  function highOrLow() {
+    if (this.rank > 6) {
+      alert(this.rank + " of " + this.suit + " is bigger than 6, you win! :-)");
+      console.log(this.rank + " of " + this.suit + " is bigger than 6, you win! :-)");
+    } else if (this.rank < 6) {
+      alert(this.rank + " of " + this.suit + " is smaller than 6, you lose :-(");
+      console.log(this.rank + " of " + this.suit + " is smaller than 6, you lose :-(");
+    } else {
+      alert(this.rank + " of " + this.suit + " is equal to 6, you tie....");
+      console.log(this.rank + " of " + this.suit + " is equal to 6, you tie....");
+    }
+      
+    /*var ranNote = 65 - this.rank;*/   //notes 
+    return this.rank;
+  };
+  
+
+  function getSuit() {
+    ranNum = Math.floor(Math.random() * 4);
+    if (ranNum == 0) {
+      console.log("0");
+      diamondsPick = new card("diamonds", diamonds[Math.floor(Math.random() * 8)]);
+      console.log(diamondsPick.suit + " has " + diamondsPick.suitConnect());
+    }else if (ranNum == 1) {
+      console.log("1");
+      heartsPick = new card("hearts", hearts[Math.floor(Math.random() * 8)]);
+      console.log(heartsPick.suit + " has " + heartsPick.suitConnect());
+    }else if (ranNum == 2) {
+      console.log("2");
+      spadesPick = new card("spades", spades[Math.floor(Math.random() * 8)]);
+      console.log(spadesPick.suit + " has " + spadesPick.suitConnect());
+    }else if (ranNum == 3) {
+      console.log("3");
+      clubsPick = new card("clubs", clubs[Math.floor(Math.random() * 8)]);
+      console.log(clubsPick.suit + " has " + clubsPick.suitConnect());
+    }
+  };
+
+  alert("Let's play high card low card, the person with a card greater than 6 wins!");
+  console.log("Let's play high card low card, the person with a card greater than 6 wins!");
+  
+  alert("Dealer give player 1 a card.....");
+  console.log("Dealer give player 1 a card.....");
+  
+  getSuit();
+  
+  alert("Dealer give player 2 a card.....");
+  console.log("Dealer give player 2 a card.....");
+  
+  getSuit();
+
+</script>
